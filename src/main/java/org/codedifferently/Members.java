@@ -45,15 +45,19 @@ public class Members {
 
         System.out.print("Enter your age: ");
         int age = -1;
-        while (age <= 0) {
+
+        while (age <= 16) {
             if (scanner.hasNextInt()) {
                 age = scanner.nextInt();
-                if (age <= 0) System.out.print("Please enter a valid age: ");
+                if (age <= 16) {
+                    System.out.print("You must be at least 16 years old. Enter a valid age: ");
+                }
             } else {
                 System.out.print("Invalid input. Enter a number for age: ");
                 scanner.next();
             }
         }
+        scanner.nextLine(); // clear buffer
         scanner.nextLine(); //created scanner for user input
 
         System.out.print("Enter your gender: ");
