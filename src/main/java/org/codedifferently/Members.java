@@ -25,9 +25,19 @@ public class Members {
 
     //Ask user if they are a member
     public boolean checkMembership(Scanner scanner) {
+
         System.out.print("Are you a member of " + gymName + "? (yes/no): ");
         String answer = scanner.nextLine();
 
+        // keep asking while input is not yes or no
+        while (!answer.equalsIgnoreCase("yes") &&
+                !answer.equalsIgnoreCase("no")) {
+
+            System.out.print("Invalid input. Please enter yes or no: ");
+            answer = scanner.nextLine();
+        }
+
+        // process valid answer
         if (answer.equalsIgnoreCase("yes")) {
             System.out.println("Have a great workout at " + gymName + "!");
             return true;
@@ -46,10 +56,10 @@ public class Members {
         System.out.print("Enter your age: ");
         int age = -1;
 
-        while (age <= 16) {
+        while (age < 16) {
             if (scanner.hasNextInt()) {
                 age = scanner.nextInt();
-                if (age <= 16) {
+                if (age < 16) {
                     System.out.print("You must be at least 16 years old. Enter a valid age: ");
                 }
             } else {
@@ -57,12 +67,17 @@ public class Members {
                 scanner.next();
             }
         }
-        scanner.nextLine(); // clear buffer
         scanner.nextLine(); //created scanner for user input
 
-        System.out.print("Enter your gender: ");
+        System.out.print("Enter your gender (male/female): ");
         String gender = scanner.nextLine();
 
+        while (!gender.equalsIgnoreCase("male") &&
+                !gender.equalsIgnoreCase("female")) {
+
+            System.out.print("Invalid input. Please enter 'male' or 'female': ");
+            gender = scanner.nextLine();
+        }
         System.out.print("Enter your email: ");
         String email = scanner.nextLine();
 
