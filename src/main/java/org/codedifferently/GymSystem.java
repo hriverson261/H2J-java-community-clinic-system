@@ -11,6 +11,11 @@ public class GymSystem {
         if (isMember) memberCount++;
         else guestCount++;
     }
+
+    public void appointmentCompleted() {
+        completedAppointments++;
+    }
+
     public void dailySummary() {
         System.out.println("\n-- Daily Summary for " + gymName + " --");
         System.out.println("Members visited: " + memberCount);
